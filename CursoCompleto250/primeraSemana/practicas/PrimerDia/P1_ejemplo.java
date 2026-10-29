@@ -8,7 +8,7 @@ public class P1_ejemplo {
         double total = precio * cantidad;
 
         System.out.println("Cliente: " + nombre);
-        System.out.println("Total a pagar: " + total);
+        System.out.printf("Total a pagar: $%.2f%n", total);
     }
 }
 
