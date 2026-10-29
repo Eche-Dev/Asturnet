@@ -25,3 +25,16 @@ Scanner permite introducir datos al usuario.
 
 - las condiciones devuelven true o false
 - if/else permite tomar decisiones.
+
+
+# Para no tener numero infinitos 
+
+Usamos $%.2f%n .
+
+el 2 significa cuanto numero queremos despues del punto.
+
+
+# nota 19:10 - 29/10/26
+revisar el ejercicio p3 porque ahi alguna cosa que no me encanja en el y es ( %s) y que si quito la primera variable y dejo una me da error.
+
+me ire a comer sushi luego vuelvo
