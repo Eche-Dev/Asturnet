@@ -9,8 +9,6 @@ public class P2_ejemplo {
         System.out.print("Ingrese su nombre: ");
         String nombre = scanner.nextLine();
 
-        
-
         System.out.print("Ingrese su edad: ");
         int edad = scanner.nextInt();   
 

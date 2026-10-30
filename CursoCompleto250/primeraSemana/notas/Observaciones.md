@@ -38,3 +38,8 @@ el 2 significa cuanto numero queremos despues del punto.
 revisar el ejercicio p3 porque ahi alguna cosa que no me encanja en el y es ( %s) y que si quito la primera variable y dejo una me da error.
 
 me ire a comer sushi luego vuelvo
+
+
+# notas del dia 30-10-26
+
+- 
