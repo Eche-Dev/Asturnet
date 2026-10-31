@@ -7,7 +7,7 @@ public class Ejercicio_Facil {
     public static void main(String[] args) {
         // LÍNEAS DE FORMATO VISUAL
         System.out.println("===========================================");
-        System.out.println("            UPERMERCADO ASTURNET           ");
+        System.out.println("           SUPERMERCADO ASTURNET           ");
         System.out.println("===========================================");
 
         Scanner supermercado = new Scanner(System.in);
