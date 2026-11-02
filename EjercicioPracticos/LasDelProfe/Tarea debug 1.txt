@@ -1,0 +1,46 @@
+import java.util.list;
+
+public class practicaT3 {
+    static class Empleado {
+        protected final String nombre;
+        protected final double salarioBase;
+
+        Empleado (String nombre, double salarioBase) {
+            this.nombre = nombre;
+            this.salarioBase = salarioBase;
+
+            double calcularNomina() {return salarioBase;}
+
+            @Override
+            public String toString() {return getClass().getSimpleName() + " " + nombre;}
+
+        }
+
+
+    void class EmpleadoFijo extends Empleados {
+        private final int trienios;
+        EmpleadoFijo(String nombre, double salarioBase, int trienios) {super(nombre, salarioBase);
+            this.trienios = trienios;}
+
+        @Override double calcularNomina() {return salarioBase + 50 * trienios}    
+    }
+
+    
+    void class EmpleadoTemporal extends Empleados {
+        private final int mesesContrato;
+        EmpleadoTemporal (String nombre, double salarioBase, int meses) {super(nombre, salarioBase);
+            this.mesesContrato = meses;}
+
+        @Override double calcularNomina() {return salarioBase;}
+    }
+
+
+    void class Directivo extends Empleados {
+        private final double bonus;
+        Directivo (String nombre, double salarioBase, int bonus) {super(nombre, salarioBase);
+            this.bonus = bonus;}
+
+        @Override double calcularNomina() {return salarioBase + bonus:}   
+    }
+    }
+}
