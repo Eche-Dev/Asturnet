@@ -1,4 +1,4 @@
-package EjercicioPracticos.LasDelProfe;
+package CursoCompleto250.segundaSemana.practicas;
 
 // ============================================================================
 // 📝 INFORME DE ANÁLISIS DE FALLOS - TAREA DEBUG 1
@@ -20,7 +20,7 @@ package EjercicioPracticos.LasDelProfe;
 //
 // ============================================================================
 
-public class practicaT3 {
+public class DebugCodex {
 
     // 1. CLASE BASE
     static class Empleado {
