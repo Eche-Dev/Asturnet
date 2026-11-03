@@ -75,9 +75,10 @@ El profesor no busca que memorices 500 líneas de memoria. Lo que busca evaluar 
 
 ## 📚 Índice de la Colección de Manuales Creados para Ti
 
-Para afianzar cada concepto con código, esquemas visuales y comparaciones con Python, tienes los 4 manuales organizados en esta misma carpeta:
+Para afianzar cada concepto con código, esquemas visuales y comparaciones con Python, tienes la colección de manuales organizados en esta misma carpeta:
 
 1. [**01_fundamentos_operadores_y_entrada_salida.md**](./01_fundamentos_operadores_y_entrada_salida.md): Diccionario de palabras clave en inglés, todos los operadores (`+`, `-`, `++`, `--`, `&&`, `||`), qué hace `println` vs `print` vs `printf`, y el uso de `Scanner`.
 2. [**02_poo_clases_objetos_new_this_y_encapsulacion.md**](./02_poo_clases_objetos_new_this_y_encapsulacion.md): Por qué se escribe cada línea, qué hace `new`, qué hace `this`, por qué usamos `private` y el desglose línea a línea de `Producto`.
 3. [**03_relaciones_entre_clases_y_control_de_excepciones.md**](./03_relaciones_entre_clases_y_control_de_excepciones.md): Asociación, Agregación, Composición, listas `ArrayList`, qué hace `throw`, qué hacen `try-catch`, y la lección del fallo de `gestionDeCurso.java`.
 4. [**04_herencia_polimorfismo_static_y_casos_reales.md**](./04_herencia_polimorfismo_static_y_casos_reales.md): Qué hace `static`, qué hace `super`, `@Override`, y el desglose de `empleado.java` y `garaje.java` con su semáforo LED.
+5. [**05_como_empezar_desde_cero_sin_bloquearse.md**](./05_como_empezar_desde_cero_sin_bloquearse.md): La regla de los 4 pisos, cómo saber si algo va en el constructor o en un método, `void` vs retorno y el truco de programar en español primero.
