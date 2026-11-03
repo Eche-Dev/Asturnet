@@ -36,4 +36,4 @@
 
 ## 📁 Archivos Relacionados
 * 💻 Código fuente: [**garaje.java**](./garaje.java)
-* 📖 Manual explicativo: [**04_herencia_polimorfismo_static_y_casos_reales.md**](../../../TeoriaExplicadaPor-IA/04_herencia_polimorfismo_static_y_casos_reales.md)
+* 📖 Manual explicativo: [**04_herencia_polimorfismo_static_y_casos_reales.md**](../../../../TeoriaExplicadaPor-IA/04_herencia_polimorfismo_static_y_casos_reales.md)

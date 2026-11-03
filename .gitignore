@@ -1,0 +1,34 @@
+# ==========================================
+# Java - Archivos compilados y ejecutables
+# ==========================================
+*.class
+*.jar
+*.war
+*.ear
+bin/
+build/
+target/
+dist/
+
+# ==========================================
+# Editores y Entornos de Desarrollo (IDE)
+# ==========================================
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# ==========================================
+# Sistema Operativo y Temporales
+# ==========================================
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
+*.tmp
+*.bak
+*.swp

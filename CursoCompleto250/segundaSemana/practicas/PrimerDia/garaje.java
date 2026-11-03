@@ -1,4 +1,4 @@
-package CursoCompleto250.segundaSemana.Tareas; // Paquete donde se ubica el archivo
+package CursoCompleto250.segundaSemana.practicas.PrimerDia; // Paquete organizado por semana y día
 
 // Clase para representar el LED indicador del garaje
 class SemaforoLed { // Definición de la clase SemaforoLed

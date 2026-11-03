@@ -1,4 +1,4 @@
-package CursoCompleto250.segundaSemana.Tareas;
+package CursoCompleto250.segundaSemana.practicas.PrimerDia;
 
 public class practicaT3  {                                                            
 
