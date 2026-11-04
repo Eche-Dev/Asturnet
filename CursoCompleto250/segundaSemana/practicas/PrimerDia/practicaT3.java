@@ -25,7 +25,7 @@ public class practicaT3  {
                                                     //En todas esta mal Empleados y lo cambio a Empleado.✅
 
 
-    class EmpleadoFijo extends Empleado {                                       //El void aqui es incorrecto porque aqui esperamos un return, lo elimino y pongo solo class.✅
+    class EmpleadoFijo extends Empleado {                                        //El void aqui es incorrecto porque aqui esperamos un return, lo elimino y pongo solo class.✅
         private final int trienios;
 
         EmpleadoFijo(String nombre, double salarioBase, int trienios) {

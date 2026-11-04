@@ -18,6 +18,12 @@ Bienvenido a la carpeta de la **Semana 2**. Aquí tienes todos los apuntes, tare
 * [**resumen_debug_1.md**](./practicas/PrimerDia/resumen_debug_1.md): Análisis de los fallos resueltos en la tarea de depuración de empleados.
 * [**Tarea debug 1.txt**](./practicas/PrimerDia/Tarea%20debug%201.txt): El código original con trampas de depuración del profesor.
 
+#### 📅 [Día 2 (04/11/2026)](./practicas/segundoDia)
+* [**garaje2moto.java**](./practicas/segundoDia/garaje2moto.java): Ampliación del garaje con la superclase `Vehiculos`, `Coches` (límite 50) y `Motocicletas` (límite 15).
+* [**matriculaEscolar.java**](./practicas/segundoDia/matriculaEscolar.java): Modelo escolar creado desde cero con validaciones.
+* [**tarea2.md**](./practicas/segundoDia/tarea2.md): Enunciado y diagrama de la ampliación con motocicletas.
+* [**tarea1_Tema1.md**](./practicas/segundoDia/tarea1_Tema1.md): Enunciado del modelo de matrícula escolar.
+
 ---
 
 ## 💡 Manuales de Apoyo Recomendados
