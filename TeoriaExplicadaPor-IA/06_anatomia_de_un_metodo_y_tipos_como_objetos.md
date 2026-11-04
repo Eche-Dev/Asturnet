@@ -1,8 +1,8 @@
-# 📘 Manual 6: Anatomía de un Método, Clases como Tipos de Datos y Setters con Objetos
+# 📘 Manual 6: Anatomía de un Método, Clases como Tipos y Preguntas Frecuentes Resueltas
 
 > **Archivo:** [`06_anatomia_de_un_metodo_y_tipos_como_objetos.md`](./06_anatomia_de_un_metodo_y_tipos_como_objetos.md)  
 > **Ubicación:** `TeoriaExplicadaPor-IA`  
-> **Propósito:** Entender qué es cada palabra dentro de la cabecera de un método, por qué tus clases (`SemaforoLed`, `Alumno`) se comportan igual que `int` o `boolean`, y cómo funciona un Setter que conecta dos objetos.
+> **Propósito:** Recopilatorio de dudas reales sobre la cabecera de métodos, clases como tipos de datos, qué significa `!= null`, cómo viaja el mensaje en `e.getMessage()`, y buenas prácticas con `Scanner`.
 
 ---
 
@@ -27,7 +27,7 @@ Si la miramos al microscopio palabra por palabra:
 ### ¿Qué hace cada pieza?
 1. **`public` (Visibilidad):** Dice quién tiene permiso para llamar a este método. `public` significa que se puede llamar desde cualquier parte del programa (por ejemplo, desde el `main`).
 2. **`void` (Tipo de retorno):** Dice qué dato te devuelve el método al terminar. `void` significa que hace un trabajo interno pero **no te devuelve ningún dato a la mano** (no hay un `return valor;`).
-3. **`setLed` (Nombre del método):** Es el **verbo o acción**. Representa la orden que le das al objeto: *"Garaje, ejecuta la acción de setLed"*.
+3. **`setLed` (Nombre del método):** Es el **verbo o acción**. Representa la orden que le das al objeto: *"Garaje, ejecuta la acción de setLed"*. **NO es una variable**.
 4. **`SemaforoLed` (Tipo de dato del parámetro):** Especifica **qué clase de dato** tiene permiso para entrar por el paréntesis.
 5. **`led` (Nombre de la variable / Parámetro):** Es el nombre con el que bautizamos al objeto que entra para poder usarlo dentro de las llaves `{ ... }`.
 
@@ -51,30 +51,9 @@ VS Code pinta del mismo color (azul o verde según el tema) todo aquello que sea
 
 ---
 
-## 🔄 3. Comparación lado a lado: Método con Primitivo vs Método con Objeto
+## 🔌 3. ¿Qué es un Setter con Lógica y por qué ponemos `if (this.led != null)`?
 
-Fíjate en lo idéntica que es la estructura:
-
-```java
-// Ejemplo A: Setter que recibe un número primitivo
-public void setCoches(int cantidad) {
-    this.cochesDentro = cantidad;
-}
-
-// Ejemplo B: Setter que recibe un objeto creado por ti
-public void setLed(SemaforoLed led) {
-    this.led = led;
-}
-```
-
-* En el **Ejemplo A**, le pasas un simple número: `miGaraje.setCoches(10);`
-* En el **Ejemplo B**, le pasas un objeto completo: `miGaraje.setLed(new SemaforoLed());`
-
----
-
-## 🔌 4. ¿Qué es un Setter con Lógica? (Conexión de dos objetos)
-
-Un setter no siempre se limita a copiar la variable (`this.led = led;`). En nuestro garaje hicimos un **Setter con Lógica de Asociación**:
+En nuestro garaje escribimos:
 
 ```java
 public void setLed(SemaforoLed led) { 
@@ -87,13 +66,126 @@ public void setLed(SemaforoLed led) {
 }
 ```
 
-### ¿Por qué pusimos el `if (this.led != null)`?
-Porque si alguien llama a `miGaraje.setLed(null);` (desconectar el semáforo), evitamos que Java intente cambiarle el color a algo que no existe, protegiéndonos del error fatal `NullPointerException`.
+### ❓ Duda: ¿Por qué ponemos `if (this.led != null)`? ¿Lo estamos dejando en null?
+**¡NO!** El símbolo **`!=`** significa **"ES DISTINTO DE"** (o "NO ES").
+
+Por lo tanto:
+```java
+if (this.led != null)
+```
+Significa literalmente:  
+👉 **"¿Es `this.led` DISTINTO de null? (es decir: ¿SÍ que hay un LED conectado?)"**
+
+#### 💥 ¿Qué pasaría si lo quitamos?
+Si un usuario crea un garaje sin semáforo (`garaje g = new garaje();`) e intenta entrar un coche, `this.led` valdría `null` (vacío).  
+Al intentar ejecutar `null.actualizarColor(...)`, Java explota inmediatamente con:
+```
+java.lang.NullPointerException
+```
+El `if (this.led != null)` actúa como un **escudo protector**: solo intenta cambiar el color si de verdad hay una bombilla enchufada.
 
 ---
 
-## 🧠 Resumen Rápido para Grabar en la Memoria
+## 📦 4. ¿Cómo sabe qué mensaje mostrar `e.getMessage()` si parece que no lo especificamos?
 
-1. Lo que va **fuera del paréntesis** (`setLed`) es el **NOMBRE DEL MÉTODO**.
-2. Lo que va **a la izquierda dentro del paréntesis** (`SemaforoLed`) es el **TIPO DE DATO**.
-3. Lo que va **a la derecha dentro del paréntesis** (`led`) es la **VARIABLE**.
+### ❓ Duda: Al hacer `System.out.println(e.getMessage());`, ¿de dónde sale ese texto?
+**¡SÍ lo especificaste tú!** Viaja empaquetado dentro del `throw`.
+
+Míralo como una carta con remitente y destinatario:
+
+#### 1. Cuando lanzas el error en `entrarCoche()`:
+```java
+if (this.cochesDentro >= 50) {
+    throw new IllegalStateException("Error: El garaje está lleno (50 coches). Entrada denegada.");
+    //                              ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+    //                              TÚ MISMO ESCRIBISTE AQUÍ EL MENSAJE
+}
+```
+
+#### 2. Cuando el `catch` atrapa el error:
+```java
+} catch (IllegalStateException e) {
+    System.out.println(e.getMessage()); 
+}
+```
+* **`e`** es la variable que atrapa el objeto de la excepción.
+* **`e.getMessage()`** es un *getter* interno de Java que abre la excepción y saca **exactamente el texto que tú pusiste entre comillas al hacer el `throw`**.
+
+---
+
+## ⌨️ 5. ¿Puedo meter un `Scanner` dentro de un Getter como `NombreProfesor()`?
+
+### ❓ Duda: Si tengo este método, ¿puedo meter un Scanner dentro?
+```java
+public String NombreProfesor() {
+    if (nombreProfesor == null) {
+        return "No hay profesor asignado";
+    } else {
+        return nombreProfesor;
+    }
+}
+```
+
+### Respuesta:
+* **Técnicamente:** Java te deja compilarlo.
+* **Profesionalmente:** **NO debes hacerlo jamás.**
+
+#### ¿Por qué?
+Porque `NombreProfesor()` es un método de **CONSULTA (un Getter)**. Su único cometido es responder a una pregunta en milisegundos: *"¿Quién es el profesor?"*.  
+Si metes un `Scanner` dentro, cada vez que tu programa quiera consultar o imprimir el nombre, **se congelará la pantalla pidiendo al usuario que vuelva a teclear**.
+
+#### La separación correcta:
+* **Método para capturar datos (con `Scanner`):** `public void pedirDatos()`
+* **Método para consultar (silencioso y rápido):** `public String getNombreProfesor()`
+
+---
+
+## 🔀 6. ¿Qué más existe en Java además de `if / else`?
+
+1. **`switch / case / default`:** Para comparar una misma variable contra muchas opciones fijas (menús, días de la semana, colores).
+   ```java
+   switch (color) {
+       case "VERDE" -> System.out.println("Pase");
+       case "ROJO"  -> System.out.println("Alto");
+       default      -> System.out.println("Averiado");
+   }
+   ```
+2. **Operador Ternario (`? :`):** El `if-else` comprimido en una sola línea.
+   ```java
+   String estado = (nota >= 5) ? "Aprobado" : "Suspenso";
+   ```
+3. **Bucles de repetición:**
+   * `for`: Cuando sabes cuántas vueltas dar (`for (int i = 0; i < 55; i++)`).
+   * `for-each`: Para recorrer listas elemento a elemento (`for (Empleado e : lista)`).
+   * `while`: Repite mientras se cumpla una condición.
+   * `do-while`: Se ejecuta al menos una vez obligatoriamente antes de comprobar.
+
+---
+
+## 📄 7. ¿El código funciona igual en una sola línea que formateado?
+
+### ❓ Duda: ¿Esta línea funcionaría igual si no la formateo?
+```java
+@Override
+public String toString() {
+    return getClass().getSimpleName() + " " + nombre;
+}
+```
+**SÍ, 100% IGUAL.**  
+Tanto si lo escribes en 4 líneas como si lo dejas en una:
+```java
+@Override public String toString() { return getClass().getSimpleName() + " " + nombre; }
+```
+Java ignora los saltos de línea y los espacios en blanco. Solo lo formateamos en varias líneas para que los ojos humanos lo lean y entiendan mejor.
+
+---
+
+## 🧠 Resumen Rápido
+
+| Concepto | Qué significa |
+| :--- | :--- |
+| `setLed` | Nombre del método (la acción). |
+| `SemaforoLed` | Tipo de dato (el molde del objeto). |
+| `!= null` | Comprueba que la variable **NO** esté vacía antes de usarla. |
+| `e.getMessage()` | Lee el texto que tú mismo guardaste dentro de `throw new Exception("texto")`. |
+| `Scanner` | Va en el `main` o en métodos de entrada (`pedirDatos()`), **nunca** dentro de un getter. |
