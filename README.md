@@ -22,7 +22,18 @@ Asturnet/
 │   ├── 02_poo_clases_objetos_new_this_y_encapsulacion.md
 │   ├── 03_relaciones_entre_clases_y_control_de_excepciones.md
 │   ├── 04_herencia_polimorfismo_static_y_casos_reales.md
-│   └── 05_como_empezar_desde_cero_sin_bloquearse.md
+│   ├── 05_como_empezar_desde_cero_sin_bloquearse.md
+│   ├── 06_anatomia_de_un_metodo_y_tipos_como_objetos.md
+│   └── 07_bucles_control_de_flujo_strings_y_dudas_frecuentes.md
+│
+├── 📁 ExplicacionDelTemario/        # Desarrollo modular oficial del temario UF2404 (Temas 1 al 6)
+│   ├── README.md
+│   ├── Tema1_CicloDeVida_Metricas_y_Analisis.md
+│   ├── Tema2_GestionDeMemoria_GarbageCollector_y_Visibilidad.md
+│   ├── Tema3_HerenciaAvanzada_ClaseObject_y_Diamante.md
+│   ├── Tema4_RelacionesUML_Dependencia_y_ColeccionesSeguras.md
+│   ├── Tema5_Polimorfismo_ClasesAbstractas_Interfaces_y_Casting.md
+│   └── Tema6_ProgramacionEstructurada_PasoParametros_y_Recursividad.md
 │
 ├── 📁 EjercicioPracticos-AI/        # Retos progresivos extra para practicar (Fácil a Experto)
 │
