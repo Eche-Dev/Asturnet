@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770.5554999999999 285" width="770.5554999999999" height="285" style="--bg:#18181B;--fg:#F4F4F5;--line:#71717A;--muted:#A1A1AA;--surface:#27272A;--border:#3F3F46;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="seq-arrow" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" />
+  </marker>
+  <marker id="seq-arrow-open" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polyline points="0 0, 8 2.5, 0 5" fill="none" stroke="var(--_arrow)" stroke-width="1" />
+  </marker>
+</defs>
+<line class="lifeline" data-actor="Main" x1="86.6185" y1="70" x2="86.6185" y2="255" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="HijoVacio" x1="277.79850000000005" y1="70" x2="277.79850000000005" y2="255" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="HijoParam" x1="426.96000000000004" y1="70" x2="426.96000000000004" y2="255" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" data-actor="Padre" x1="636.513" y1="70" x2="636.513" y2="255" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<g class="message" data-from="Main" data-to="HijoVacio" data-label="1. Nace el coche sin parámetros" data-line-style="solid" data-arrow-head="filled" data-self="false" data-step="1">
+  <line x1="86.6185" y1="90" x2="277.79850000000005" y2="90" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <rect x="98.20850000000002" y="71.85" width="168" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="182.20850000000002" y="80" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">1. Nace el coche sin parámetros</text>
+  <circle class="sequence-number" cx="86.6185" cy="90" r="9" fill="var(--_arrow)" stroke="var(--bg)" stroke-width="1" />
+  <text x="86.6185" y="90" class="sequence-number-label" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">1</text>
+</g>
+<g class="message" data-from="HijoVacio" data-to="HijoParam" data-label="2. Salta a Coches(50)" data-line-style="solid" data-arrow-head="filled" data-self="false" data-step="2">
+  <line x1="277.79850000000005" y1="145" x2="426.96000000000004" y2="145" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <rect x="294.37925000000007" y="126.85" width="116" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="352.37925000000007" y="135" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">2. Salta a Coches(50)</text>
+  <circle class="sequence-number" cx="277.79850000000005" cy="145" r="9" fill="var(--_arrow)" stroke="var(--bg)" stroke-width="1" />
+  <text x="277.79850000000005" y="145" class="sequence-number-label" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">2</text>
+</g>
+<g class="message" data-from="HijoParam" data-to="Padre" data-label="3. Salta a Vehiculos(&quot;Coche&quot;, 50)" data-line-style="solid" data-arrow-head="filled" data-self="false" data-step="3">
+  <line x1="426.96000000000004" y1="200" x2="636.513" y2="200" stroke="var(--_line)" stroke-width="1" marker-end="url(#seq-arrow)" />
+  <rect x="445.2365" y="181.85" width="173" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="531.7365" y="190" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">3. Salta a Vehiculos(&quot;Coche&quot;, 50)</text>
+  <circle class="sequence-number" cx="426.96000000000004" cy="200" r="9" fill="var(--_arrow)" stroke="var(--bg)" stroke-width="1" />
+  <text x="426.96000000000004" y="200" class="sequence-number-label" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">3</text>
+</g>
+<g class="note" data-position="over" data-actors="HijoVacio">
+  <polygon points="189.5355,98 360.0615,98 366.0615,104 366.0615,121 189.5355,121" fill="var(--bg)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <polygon points="360.0615,98 366.0615,104 360.0615,104" fill="var(--_inner-stroke)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="277.79850000000005" y="109.5" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">this(50); pasa el 50 a su hermano</text>
+</g>
+<g class="note" data-position="over" data-actors="HijoParam">
+  <polygon points="320.877,153 527.043,153 533.043,159 533.043,176 320.877,176" fill="var(--bg)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <polygon points="527.043,153 533.043,159 527.043,159" fill="var(--_inner-stroke)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="426.96000000000004" y="164.5" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">super(&quot;Coche&quot;, 50); se lo manda al padre</text>
+</g>
+<g class="note" data-position="over" data-actors="Padre">
+  <polygon points="542.013,208 725.013,208 731.013,214 731.013,231 542.013,231" fill="var(--bg)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <polygon points="725.013,208 731.013,214 725.013,214" fill="var(--_inner-stroke)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="636.513" y="219.5" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.8499999999999996">this.limite = 50; ¡AQUÍ SE GUARDA!</text>
+</g>
+<g class="actor" data-id="Main" data-label="new Coches()" data-type="participant">
+  <rect x="30" y="30" width="113.237" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="86.6185" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">new Coches()</text>
+</g>
+<g class="actor" data-id="HijoVacio" data-label="Coches()" data-type="participant">
+  <rect x="234.14750000000004" y="30" width="87.30199999999999" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="277.79850000000005" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">Coches()</text>
+</g>
+<g class="actor" data-id="HijoParam" data-label="Coches(int limite)" data-type="participant">
+  <rect x="361.44950000000006" y="30" width="131.02100000000002" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="426.96000000000004" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">Coches(int limite)</text>
+</g>
+<g class="actor" data-id="Padre" data-label="Vehiculos(String tipo, int limite)" data-type="participant">
+  <rect x="532.4705000000001" y="30" width="208.08499999999992" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="636.513" y="50" font-size="13" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.55">Vehiculos(String tipo, int limite)</text>
+</g>
+</svg>

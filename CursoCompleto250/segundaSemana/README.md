@@ -24,6 +24,9 @@ Bienvenido a la carpeta de la **Semana 2**. Aquí tienes todos los apuntes, tare
 * [**tarea2.md**](./practicas/segundoDia/tarea2.md): Enunciado y diagrama de la ampliación con motocicletas.
 * [**tarea1_Tema1.md**](./practicas/segundoDia/tarea1_Tema1.md): Enunciado del modelo de matrícula escolar.
 
+#### 📅 [Día 3 (05/11/2026)](./practicas/TercerDia)
+* [**garaje2moto.java**](./practicas/TercerDia/garaje2moto.java): Versión consolidada del garaje con comentarios detallados línea por línea, arquitectura limpia, manejo de excepciones (`try-catch`), encadenamiento de constructores (`this(...)` y `super(...)`) y menú interactivo por consola.
+
 ---
 
 ## 💡 Manuales de Apoyo Recomendados
