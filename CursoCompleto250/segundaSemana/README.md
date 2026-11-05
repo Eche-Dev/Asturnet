@@ -26,6 +26,7 @@ Bienvenido a la carpeta de la **Semana 2**. Aquí tienes todos los apuntes, tare
 
 #### 📅 [Día 3 (05/11/2026)](./practicas/TercerDia)
 * [**garaje2moto.java**](./practicas/TercerDia/garaje2moto.java): Versión consolidada del garaje con comentarios detallados línea por línea, arquitectura limpia, manejo de excepciones (`try-catch`), encadenamiento de constructores (`this(...)` y `super(...)`) y menú interactivo por consola.
+* [**Dudas_y_Explicaciones_garaje2moto.md**](./practicas/TercerDia/Dudas_y_Explicaciones_garaje2moto.md): Cuaderno de dudas resueltas paso a paso (constructores en cadena, delegación, `trim`, `equalsIgnoreCase`, `try-catch`, `!= null`, `main` y flujo del programa).
 
 ---
 
