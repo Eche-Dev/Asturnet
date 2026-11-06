@@ -15,8 +15,8 @@ public class garajeModularizado {
     // ------------------------------------------------------------------------------------------
     // 1. CONSTANTES FIJAS (Valores que nunca cambian en todo el programa)
     // ------------------------------------------------------------------------------------------
-    public static final int PLAZAS_FIJAS_COCHES = 50;
-    public static final int PLAZAS_FIJAS_MOTOS = 15;
+    public static final int limiteCoches = 50;
+    public static final int limiteMotos = 15;
 
     // ------------------------------------------------------------------------------------------
     // 2. ATRIBUTOS PRIVADOS (Los 3 componentes que tiene este garaje)
@@ -30,7 +30,7 @@ public class garajeModularizado {
     // ------------------------------------------------------------------------------------------
     // Constructor por defecto: usa automáticamente los límites estándar de 50 y 15
     public garajeModularizado() {
-        this(PLAZAS_FIJAS_COCHES, PLAZAS_FIJAS_MOTOS);
+        this(limiteCoches, limiteMotos);
     }
 
     // Constructor con parámetros: permite crear garajes a medida si se necesita
@@ -53,8 +53,8 @@ public class garajeModularizado {
         sincronizarLed(); // Cada vez que sale un coche, avisamos al semáforo
     }
 
-    public int cuantosCochesHay() {
-        return this.seccionCoches.cuantosHay();
+    public int getCochesDentro() {
+        return this.seccionCoches.getcuantosHay();
     }
 
     public int getCochesQueSalieron() {
@@ -73,7 +73,7 @@ public class garajeModularizado {
     }
 
     public int cuantasMotosHay() {
-        return this.seccionMotos.cuantosHay();
+        return this.seccionMotos.getcuantosHay();
     }
 
     public int getMotosQueSalieron() {
@@ -91,7 +91,7 @@ public class garajeModularizado {
     // Método auxiliar privado para actualizar la luz sin repetir código
     private void sincronizarLed() {
         if (this.led != null) {
-            this.led.actualizarColor(this.seccionCoches.cuantosHay());
+            this.led.actualizarColor(this.seccionCoches.getcuantosHay());
         }
     }
 
@@ -99,15 +99,15 @@ public class garajeModularizado {
     // 7. INFORME DE ESTADO POR PANTALLA
     // ------------------------------------------------------------------------------------------
     public void mostrarEstado() {
-        int libresCoches = seccionCoches.getLimite() - seccionCoches.cuantosHay();
-        int libresMotos = seccionMotos.getLimite() - seccionMotos.cuantosHay();
+        int libresCoches = seccionCoches.getLimite() - seccionCoches.getcuantosHay();
+        int libresMotos = seccionMotos.getLimite() - seccionMotos.getcuantosHay();
 
         System.out.println("\n--------------------------------------------");
         System.out.println("         ESTADO ACTUAL DEL GARAJE           ");
         System.out.println("--------------------------------------------");
-        System.out.println("Coches: " + seccionCoches.cuantosHay() + " / " + seccionCoches.getLimite()
+        System.out.println("Coches: " + seccionCoches.getcuantosHay() + " / " + seccionCoches.getLimite()
                 + " (Libres: " + libresCoches + " | Salidos hoy: " + seccionCoches.getQueSalieron() + ")");
-        System.out.println("Motocicletas: " + seccionMotos.cuantosHay() + " / " + seccionMotos.getLimite()
+        System.out.println("Motocicletas: " + seccionMotos.getcuantosHay() + " / " + seccionMotos.getLimite()
                 + " (Libres: " + libresMotos + " | Salidas hoy: " + seccionMotos.getQueSalieron() + ")");
 
         if (this.led != null) {
@@ -151,7 +151,7 @@ class Vehiculos {
         System.out.println("Salió " + this.tipo + ". Dentro: " + this.dentro + " | Total salidos: " + this.queSalieron);
     }
 
-    public int cuantosHay() {
+    public int getcuantosHay() {
         return this.dentro;
     }
 
@@ -220,4 +220,5 @@ class SemaforoLed {
     public String getColor() {
         return this.color;
     }
+
 }

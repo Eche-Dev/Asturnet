@@ -29,7 +29,8 @@ Bienvenido a la carpeta de la **Semana 2**. Aquí tienes todos los apuntes, tare
 * [**Dudas_y_Explicaciones_garaje2moto.md**](./practicas/TercerDia/Dudas_y_Explicaciones_garaje2moto.md): Cuaderno de dudas resueltas paso a paso (constructores en cadena, delegación, `trim`, `equalsIgnoreCase`, `try-catch`, `!= null`, `main` y flujo del programa).
 
 #### 📅 [Día 4 (06/11/2026)](./practicas/CuartoDia)
-* [**garajeModularizado.java**](./practicas/CuartoDia/garajeModularizado.java): Versión reestructurada con orden de lectura descendente prioritario (la clase principal arriba con sus constantes, atributos y menú; y los módulos de soporte `Vehiculos`, `Coches`, `Motocicletas` y `SemaforoLed` abajo).
+* [**garajeModularizado.java**](./practicas/CuartoDia/garajeModularizado.java): Versión monofile reestructurada con orden de lectura descendente prioritario.
+* [**ProyectoModular/**](./practicas/CuartoDia/ProyectoModular): **Versión modular profesional (estándar de empresa)** donde cada clase vive en su propio archivo (`Vehiculos.java`, `Coches.java`, `Motocicletas.java`, `SemaforoLed.java`, `Garaje.java`, `App.java`).
 
 ---
 
