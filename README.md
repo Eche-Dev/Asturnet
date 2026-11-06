@@ -24,7 +24,8 @@ Asturnet/
 │   ├── 04_herencia_polimorfismo_static_y_casos_reales.md
 │   ├── 05_como_empezar_desde_cero_sin_bloquearse.md
 │   ├── 06_anatomia_de_un_metodo_y_tipos_como_objetos.md
-│   └── 07_bucles_control_de_flujo_strings_y_dudas_frecuentes.md
+│   ├── 07_bucles_control_de_flujo_strings_y_dudas_frecuentes.md
+│   └── 08_entrada_salida_system_in_out_y_guia_completa_scanner.md
 │
 ├── 📁 ExplicacionDelTemario/        # Desarrollo modular oficial del temario UF2404 (Temas 1 al 6)
 │   ├── README.md

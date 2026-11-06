@@ -63,12 +63,25 @@ flowchart TD
   * `%d` = Número entero (`int`).
   * `%.2f` = Decimal (`double`) cortado a 2 decimales.
   * `%n` = Salto de línea dentro del formato.
-* **Ejemplo:**
+  * `%%` = Imprime el símbolo de porcentaje `%` literal sin romper el código.
+
+#### 📐 El Secreto de las Columnas y Alineación en Tablas/Facturas:
+Cuando quieres que el texto y los números salgan alineados en columnas rectas (como un ticket de supermercado o una tabla), se le añade un **número de ancho** al marcador:
+
+| Marcador | ¿Qué hace con los espacios? | Alineación | Ejemplo |
+| :--- | :--- | :---: | :--- |
+| **`%-20s`** | Reserva **20 huecos** para el texto. El signo menos `-` empuja el texto a la **izquierda** y rellena con espacios a la derecha. | ⬅️ Izquierda | `[Subtotal:           ]` |
+| **`%10.2f`** | Reserva **10 huecos** para el número. Al ser positivo, empuja el número a la **derecha** y rellena con espacios a la izquierda. | ➡️ Derecha | `[     54.00]` |
+
+* **Ejemplo de factura con 2 columnas perfectas:**
   ```java
-  String coche = "Seat";
-  double precio = 12500.559;
-  System.out.printf("Coche: %s | Precio: %.2f EUR%n", coche, precio);
-  // Salida: Coche: Seat | Precio: 12500.56 EUR
+  System.out.printf("%-20s %10.2f EUR%n", "Subtotal:", 90.0);
+  System.out.printf("%-20s %10.2f EUR%n", "IVA (21%):", 18.90);
+  System.out.printf("%-20s %10.2f EUR%n", "Descuento:", 4.50);
+  // Salida perfectamente alineada:
+  // Subtotal:                 90.00 EUR
+  // IVA (21%):                18.90 EUR
+  // Descuento:                 4.50 EUR
   ```
 
 ---
