@@ -41,7 +41,8 @@ public class flotaDeVehiculos {
     public static void main (String[] args){
         double totalCalculoFlota = 0;
         
-        //Array con tipos base (Guardamos camiones y furgonetas juntos gracias al Polimorfismo)
+        //Array con tipos base (Guardamos camiones y furgonetas juntos gracias al Polimorfismo) flota es la variable
+        //creamos en momoria los datos
         flotaDeVehiculos[] flota = {
             new camionPesado("Volvo FH", "1234-BBB", 400.0, 4),
             new furgonetaReparto("Renault Master", "5678-CCC", 150.0, 4000.0),
@@ -53,15 +54,14 @@ public class flotaDeVehiculos {
         System.out.println("============= REPORTE MENSUAL DE FLOTA =============");
 
         // Bucle for-Each: Da tantas vueltas como vehículos haya en la lista (en este caso 4 vueltas)
-        for(flotaDeVehiculos eVehiculos : flota){
-            // En cada vuelta, 'eVehiculos' es el vehículo de turno.
-            // Con printf imprimimos su nombre de clase, matrícula, marca y llamamos a calcularMantenimiento()
-            
+        for(flotaDeVehiculos eVehiculos : flota){      // En cada vuelta, 'eVehiculos' es el vehículo de turno.
+
+        // Con printf imprimimos su nombre de clase, matrícula, marca y llamamos a calcularMantenimiento()
             System.out.printf("%s [%s - %s] -> Mantenimiento: %.2f EUR%n",   //print en formato f. CADA % representa un atributo.
                     eVehiculos.getClass().getSimpleName(),     //getClass busca en memoria lo que esta creado con NEW y getSimpleName lo unico que hace es limpiar el nombre para mostrarlo.
                     eVehiculos.marcaDeCoche,                   //coge los dato de new - igual abajo
                     eVehiculos.matricula, 
-            // poliformismos en accion: Java sabe por sí solo si debe cobrar ejes o kilómetros según el tipo de hijo
+        // poliformismos en accion: Java sabe por sí solo si debe cobrar ejes o kilómetros según el tipo de hijo
                     eVehiculos.calcularMantenimiento());
 
             // En cada vuelta vamos sumando el coste de ese vehículo a la bucha total
