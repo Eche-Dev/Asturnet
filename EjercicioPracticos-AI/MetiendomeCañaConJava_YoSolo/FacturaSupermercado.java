@@ -1,4 +1,4 @@
-package EjercicioPracticosAI.MetiendomeCañaConJav_YoSolo;
+package EjercicioPracticosAI.MetiendomeCañaConJava_YoSolo;
 import java.util.Scanner;
 
 public class FacturaSupermercado {
