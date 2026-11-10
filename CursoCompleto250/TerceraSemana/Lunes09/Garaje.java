@@ -1,35 +1,42 @@
+//Importe de java
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.DateTimeFormatter;
 import java.time.Duration;
-
+import javax.crypto.Mac;
 
 /**
  * Garaje con 50 plazas de coche y 15 de moto, con un LED de estado para cada tipo.
  * Compilar:  javac Garaje.java
  * Ejecutar:  java Garaje
  */
+
+//Clase padre
 public class Garaje {
 
-    // Colores posibles del LED
+    // Atributos - Colores posibles del LED - Capacidad del garaje 
     enum Led { VERDE, NARANJA, ROJO }
-
     private static final int MAX_COCHES = 50;
     private static final int MAX_MOTOS = 15;
 
+    //Formato para la hora dia, mes y año  - Hora - minutos y segundos
     static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
+    //Array de lista de coche-moto-string 
     private final List<Coche> coches = new ArrayList<>();
     private final List<Moto> motos = new ArrayList<>();
     private final List<String> registro = new ArrayList<>();
 
+    //Datos que debe tener la matricula para ser valida.
     public static boolean matriculaValida(String matricula) {
         return matricula.matches("\\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}");
     }
 
+
     public Vehiculo buscar (String matricula) {
         //metodo que busca una matricula
+        retur
     }
 
     public boolean estaDentro(String matricula) {
@@ -134,13 +141,20 @@ public class Garaje {
 // =====================================================================
 abstract class Vehiculo {
     private final String matricula;
+    private final String modelo;
 
-    public Vehiculo(String matricula) {
+    public Vehiculo(List Coche, Moto, String matricula, String modelo) {
+        super(Coche, Moto);
         this.matricula = matricula;
+        this.modelo = modelo;
     }
 
     public String getMatricula() {
         return matricula;
+    }
+
+    public String getModelo(){
+        return modelo;
     }
 
     public abstract String getTipo();
