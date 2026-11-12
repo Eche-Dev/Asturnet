@@ -1,5 +1,3 @@
-package CursoCompleto250.TerceraSemana.Lunes09.GarajeModularizado;
-
 /**
  * Subclase Moto:
  * Hereda de Vehiculo y representa una motocicleta.

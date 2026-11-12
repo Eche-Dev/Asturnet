@@ -82,17 +82,17 @@ public class Garaje {
 
     // ====== Salida de vehículos ======
     public boolean salir(String matricula) {
-        Vehiculo v = buscar(matricula)
+        Vehiculo v = buscar(matricula);
         if (v == null) {
             System.out.println("La matrícula " + matricula + " no está en el garaje");
             return false;
         }
         if (v instanceof Coche) coches.remove(v);
-        else motos.remove(v)
+        else motos.remove(v);
 
         //Saca foto al tiempo de salida y comprueba cuanto tiempo lleva dentro.
         v.setSalida(LocalDateTime.now());
-        registro.add(v.getSalida().format(FORMATO) + " SALIDA " + v 
+        registro.add(v.getSalida().format(FORMATO) + " SALIDA " + v);
         + " (Estancia: " + tiempoEstancia() + ")");
         return true;
     }

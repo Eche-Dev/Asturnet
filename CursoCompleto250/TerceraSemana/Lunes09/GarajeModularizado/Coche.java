@@ -1,5 +1,3 @@
-package CursoCompleto250.TerceraSemana.Lunes09.GarajeModularizado;
-
 /**
  * Subclase Coche:
  * Hereda de Vehiculo y representa un automóvil.

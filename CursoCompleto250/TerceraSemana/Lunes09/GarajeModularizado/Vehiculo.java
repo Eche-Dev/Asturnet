@@ -1,11 +1,8 @@
-package CursoCompleto250.TerceraSemana.Lunes09.GarajeModularizado;
-
 import java.time.LocalDateTime;
 
 /**
  * Superclase abstracta Vehiculo:
  * Define todo lo común a cualquier vehículo (matrícula, modelo y fecha de entrada).
- * Esto estaba en archivo entero entre la linea 142 y 166.
  */
 public abstract class Vehiculo {
 
@@ -25,25 +22,23 @@ public abstract class Vehiculo {
         this(matricula, "Estándar");
     }
 
-    //Getter 
+    // ====== Getters y Setters ======
     public String getMatricula() {
         return matricula;
     }
+
     public String getModelo() {
         return modelo;
     }
 
-    //Setter
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
-    //Getter - Se agrego nuevo
     public LocalDateTime getEntrada() {
         return entrada;
     }
 
-    //Setter - Se agrego nuevo
     public void setEntrada(LocalDateTime entrada) {
         this.entrada = entrada;
     }
@@ -51,7 +46,7 @@ public abstract class Vehiculo {
     // Método abstracto: obliga a que cada hijo diga qué tipo es ("Coche", "Moto"...)
     public abstract String getTipo();
 
-    // Sobre escritura
+    // Representación en texto del vehículo
     @Override
     public String toString() {
         return getTipo() + " " + matricula + " (" + modelo + ")";

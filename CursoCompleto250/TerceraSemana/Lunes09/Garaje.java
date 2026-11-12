@@ -2,9 +2,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
-import java.time.DateTimeFormatter;
+import java.time.format.DateTimeFormatter;
 import java.time.Duration;
-import javax.crypto.Mac;
 
 /**
  * Garaje con 50 plazas de coche y 15 de moto, con un LED de estado para cada tipo.
@@ -33,16 +32,20 @@ public class Garaje {
         return matricula.matches("\\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}");
     }
 
-
-    public Vehiculo buscar (String matricula) {
-        //metodo que busca una matricula
-        retur
+    // Método que busca si una matrícula ya está en el garaje
+    public Vehiculo buscar(String matricula) {
+        for (Coche c : coches) {
+            if (c.getMatricula().equals(matricula)) return c;
+        }
+        for (Moto m : motos) {
+            if (m.getMatricula().equals(matricula)) return m;
+        }
+        return null;
     }
 
     public boolean estaDentro(String matricula) {
         return buscar(matricula) != null;
     }
-
 
     // ====== Entrada de vehículos ======
     public boolean entrar(Vehiculo v) {
@@ -75,11 +78,10 @@ public class Garaje {
         //Anotar la entrada del coche o moto
         //LocalDateTime.now() fecha y hora actuales del sistema
         v.setEntrada(LocalDateTime.now()); //Sacas foto a la fecha y la añades a Entrada
-        registro.add(getEntrada().format(FORMATO) + "  ENTRADA  " + v );//Recoges la info en Entrada y la añades al registro
+        registro.add(v.getEntrada().format(FORMATO) + "  ENTRADA  " + v );//Recoges la info en Entrada y la añades al registro
         return true;
 
     }
-    // He escrito hasta aqui ------------------------------------------
 
     // ====== Salida de vehículos ======
     public boolean salir(Vehiculo v) {
@@ -112,7 +114,6 @@ public class Garaje {
     // ====== Programa de prueba ======
     public static void main(String[] args) {
         Garaje garaje = new Garaje();
-        // Tipodevariable nombredevariable = new Objeto() 
         garaje.mostrarEstado();
 
         // Entran coches poco a poco hasta llenar el garaje y uno más
@@ -128,8 +129,8 @@ public class Garaje {
         }
 
         // Sale un coche y una moto
-        garaje.salir(garaje.coches.get(0));
-        garaje.salir(garaje.motos.get(0));
+        if (!garaje.coches.isEmpty()) garaje.salir(garaje.coches.get(0));
+        if (!garaje.motos.isEmpty())  garaje.salir(garaje.motos.get(0));
         System.out.println("Sale un coche y una moto:");
         garaje.mostrarEstado();
     }
@@ -141,20 +142,36 @@ public class Garaje {
 // =====================================================================
 abstract class Vehiculo {
     private final String matricula;
-    private final String modelo;
+    private String modelo;
+    private LocalDateTime entrada;
 
-    public Vehiculo(List Coche, Moto, String matricula, String modelo) {
-        super(Coche, Moto);
+    public Vehiculo(String matricula, String modelo) {
         this.matricula = matricula;
         this.modelo = modelo;
+    }
+
+    public Vehiculo(String matricula) {
+        this(matricula, "Estándar");
     }
 
     public String getMatricula() {
         return matricula;
     }
 
-    public String getModelo(){
+    public String getModelo() {
         return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public LocalDateTime getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(LocalDateTime entrada) {
+        this.entrada = entrada;
     }
 
     public abstract String getTipo();
@@ -169,6 +186,10 @@ abstract class Vehiculo {
 // Subclases
 // =====================================================================
 class Coche extends Vehiculo {
+    public Coche(String matricula, String modelo) {
+        super(matricula, modelo);
+    }
+
     public Coche(String matricula) {
         super(matricula);
     }
@@ -180,6 +201,10 @@ class Coche extends Vehiculo {
 }
 
 class Moto extends Vehiculo {
+    public Moto(String matricula, String modelo) {
+        super(matricula, modelo);
+    }
+
     public Moto(String matricula) {
         super(matricula);
     }
