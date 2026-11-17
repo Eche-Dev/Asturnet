@@ -90,7 +90,76 @@
 
 ---
 
+### ❓ P47. ¿Qué indica la palabra `this`?
+* ❌ *La clase padre*
+* ✅ **El objeto actual**
+* ❌ *Un método estático*
+* ❌ *Una variable global*
+
+> **💡 Justificación:**  
+> En Java, **`this`** es una autoreferencia que apunta a la **instancia u objeto actual** sobre el que se está ejecutando el código (muy usado para diferenciar atributos de parámetros: `this.nombre = nombre`).  
+> *(Para referirse a la clase padre se utiliza la palabra reservada `super`)*.
+
+---
+
+### ❓ P41. Un buen diseño orientado a objetos busca:
+* ❌ *Evitar la ocultación de información*
+* ❌ *Máximo número de clases*
+* ❌ *Alto acoplamiento y baja cohesión*
+* ✅ **Bajo acoplamiento y alta cohesión**
+
+> **💡 Justificación:**  
+> Es la regla de oro de la arquitectura del software:
+> * **Bajo acoplamiento:** Las clases deben depender lo menos posible unas de otras para que cambiar una no rompa las demás.
+> * **Alta cohesión:** Cada clase debe tener una única responsabilidad bien definida (hacer una sola cosa y hacerla bien).
+
+---
+
+### ❓ P42. ¿Cuál NO es uno de los cuatro pilares de la POO?
+* ✅ **Compilación**
+* ❌ *Polimorfismo*
+* ❌ *Herencia*
+* ❌ *Encapsulación*
+
+> **💡 Justificación:**  
+> Los **4 pilares fundamentales de la POO** son:  
+> 1. **Abstracción**  
+> 2. **Encapsulación**  
+> 3. **Herencia**  
+> 4. **Polimorfismo**  
+> *(La **compilación** es el proceso de traducir código fuente a bytecode/binario, no tiene nada que ver con los pilares del paradigma de objetos)*.
+
+---
+
 ## 🧬 2. Herencia, Polimorfismo y Métodos
+
+### ❓ P40. ¿Qué relación expresa la herencia?
+* ❌ *«tiene un»*
+* ❌ *«crea un»*
+* ✅ **«es un»**
+* ❌ *«usa un»*
+
+> **💡 Justificación:**  
+> En programación orientada a objetos (POO), la **herencia** modela siempre una relación **«es un»** (*IS-A* en inglés). Por ejemplo: un `Coche` **es un** `Vehiculo`, un `Gato` **es un** `Animal`.  
+> * Por qué fallan las otras:  
+>   * **«tiene un»** (*HAS-A*): Modela **composición** o **asociación** (ej: un `Coche` tiene un `Motor`).  
+>   * **«usa un»**: Modela **dependencia** (ej: un método recibe un parámetro de otra clase para hacer un cálculo).  
+>   * **«crea un»**: Modela instanciación/factoría.
+
+---
+
+### ❓ P45. Un procedimiento se diferencia de una función en que:
+* ❌ *No tiene parámetros*
+* ✅ **No devuelve valor**
+* ❌ *Siempre es privado*
+* ❌ *Siempre es recursivo*
+
+> **💡 Justificación:**  
+> En la teoría clásica de programación y algoritmos:  
+> * **Función:** Realiza un cálculo y **devuelve un resultado** (ej: `int suma(int a, int b) { return a + b; }`).  
+> * **Procedimiento:** Ejecuta una serie de instrucciones/acciones pero **NO devuelve ningún valor** (en Java se corresponde con los métodos de retorno **`void`**, como `void imprimir()`). Ambos pueden recibir parámetros y tener cualquier modificador de acceso.
+
+---
 
 ### ❓ P7. La sobrecarga de métodos se resuelve:
 * ❌ *En ejecución*
@@ -157,6 +226,17 @@
 
 > **💡 Justificación:**  
 > Al hacer un *downcasting* (forzar la conversión de un padre a un hijo, ej: `(Coche) v`), si el objeto en realidad era una `Moto`, el programa colapsa con `ClassCastException`. Para hacerlo de forma 100% segura, se comprueba primero con `if (v instanceof Coche)`.
+
+---
+
+### ❓ P38. Al crear un objeto de una subclase, ¿qué constructor se ejecuta primero?
+* ❌ *El de Object solo al final*
+* ❌ *El de la subclase*
+* ✅ **El de la superclase**
+* ❌ *Ninguno*
+
+> **💡 Justificación:**  
+> En Java, antes de construir la casa hay que poner los cimientos: la primera instrucción dentro del constructor de un hijo siempre es la llamada al constructor del padre (`super(...)`). Por tanto, la cadena de construcción va de arriba hacia abajo (`Object` $\rightarrow$ superclase $\rightarrow$ subclase), ejecutándose **primero el constructor de la superclase**.
 
 ---
 
@@ -269,6 +349,19 @@
 
 ---
 
+### ❓ P46. Los objetos de un programa Java se almacenan en:
+* ❌ *La pila (stack)*
+* ❌ *El disco*
+* ❌ *El hilo*
+* ✅ **El montón (heap)**
+
+> **💡 Justificación:**  
+> En la arquitectura de memoria de la JVM:  
+> * **El montón (*Heap*):** Es el área dinámica de memoria donde residen **todos los objetos** instanciados con `new` (y sus atributos).  
+> * **La pila (*Stack*):** Solo almacena variables locales primitivas y las referencias (punteros/direcciones) que apuntan hacia los objetos del Heap.
+
+---
+
 ### ❓ P22. ¿Qué hace el recolector de basura (*Garbage Collector*)?
 * ✅ **Libera la memoria de objetos no alcanzables**
 * ❌ *Elimina clases sin uso del disco*
@@ -280,7 +373,47 @@
 
 ---
 
+### ❓ P44. Java pasa los objetos a los métodos:
+* ❌ *Copiando el objeto entero*
+* ❌ *Por puntero explícito*
+* ❌ *Siempre por referencia de variable*
+* ✅ **Por valor de la referencia**
+
+> **💡 Justificación:**  
+> En Java **TODO se pasa estrictamente por valor** (*pass-by-value*):  
+> * Para tipos primitivos (`int`, `double`): se pasa una copia directa del valor.  
+> * Para objetos: la variable contiene la **referencia** (la dirección de memoria en el Heap), y lo que se pasa al método es una **copia del valor de esa referencia**.  
+> Por eso, si modificas los atributos del objeto dentro del método, los cambios se reflejan fuera (porque ambas referencias apuntan al mismo objeto en el Heap); pero si reasignas el parámetro (`obj = new Otro()`), la variable original fuera del método no cambia.
+
+---
+
 ## 📦 5. Estructuras de Información y Colecciones
+
+### ❓ P39. El paquete de Java con las colecciones es:
+* ❌ *java.net*
+* ❌ *java.io*
+* ✅ **java.util**
+* ❌ *java.sql*
+
+> **💡 Justificación:**  
+> En Java, todo el framework de colecciones (*Java Collections Framework*: `List`, `ArrayList`, `LinkedList`, `Set`, `HashSet`, `Map`, `HashMap`, `Queue`, `Deque`, etc.) se encuentra dentro del paquete **`java.util`**.  
+> * **`java.net`**: Paquete para conexiones de red, sockets y URLs/HTTP.  
+> * **`java.io`**: Paquete para entrada y salida de datos y ficheros (`File`, `InputStream`, `BufferedReader`).  
+> * **`java.sql`**: Paquete JDBC para conexión y consultas a bases de datos relacionales (`Connection`, `Statement`, `ResultSet`).
+
+---
+
+### ❓ P43. ¿Qué conviene devolver desde un getter de una colección interna?
+* ❌ *El tamaño solo*
+* ❌ *null*
+* ❌ *La lista original*
+* ✅ **Una copia o vista inmutable**
+
+> **💡 Justificación:**  
+> Devolver la lista original rompe por completo la **encapsulación**: cualquier código externo que llame a `objeto.getLista()` podría hacer `.clear()` o `.add(...)` modificando el estado interno del objeto sin su consentimiento.  
+> Por seguridad y buenas prácticas, se debe devolver una copia defensiva (ej: `new ArrayList<>(this.lista)`) o una vista de solo lectura (ej: `Collections.unmodifiableList(this.lista)`).
+
+---
 
 ### ❓ P23. ¿Qué estructura elimina duplicados automáticamente?
 * ❌ *List*
@@ -364,6 +497,47 @@
 
 ---
 
+### ❓ P48. ¿Qué dos formas hay de crear un hilo en Java?
+* ✅ **Heredar de Thread o implementar Runnable**
+* ❌ *Usar static o final*
+* ❌ *Heredar de Object o de String*
+* ❌ *Usar try o catch*
+
+> **💡 Justificación:**  
+> En Java estándar existen dos maneras fundamentales de definir la lógica de un hilo:  
+> 1. **Heredar de la clase `Thread`:** `class MiHilo extends Thread { public void run() { ... } }` y luego `new MiHilo().start();`  
+> 2. **Implementar la interfaz `Runnable`:** `class MiTarea implements Runnable { public void run() { ... } }` y luego `new Thread(new MiTarea()).start();` *(forma recomendada porque permite a la clase heredar de otra clase distinta)*.
+
+---
+
+### ❓ P51. ¿En qué estado está un hilo creado con `new` pero sin llamar a `start()`?
+* ❌ *RUNNABLE*
+* ❌ *TERMINATED*
+* ❌ *BLOCKED*
+* ✅ **NEW**
+
+> **💡 Justificación:**  
+> En el ciclo de vida de un hilo en Java (`Thread.State`):  
+> * **`NEW`**: El objeto `Thread` ha sido instanciado con `new Thread()`, pero **aún no se ha invocado `start()`**.  
+> * **`RUNNABLE`**: Se ha llamado a `start()` y el hilo está corriendo o listo para que la CPU le dé turno.  
+> * **`BLOCKED` / `WAITING` / `TIMED_WAITING`**: Esperando un monitor de bloqueo (`synchronized`), un `wait()`, `join()` o `sleep()`.  
+> * **`TERMINATED`**: El método `run()` ha finalizado y el hilo ha muerto.
+
+---
+
+### ❓ P52. ¿Qué es un hilo demonio (*daemon*)?
+* ❌ *Un hilo que bloquea el programa*
+* ❌ *Un hilo con prioridad máxima*
+* ✅ **Un hilo de servicio en segundo plano que no impide que la JVM termine**
+* ❌ *Un hilo que nunca se puede crear*
+
+> **💡 Justificación:**  
+> Un **hilo demonio** (*daemon thread*, configurado con `hilo.setDaemon(true)`) es un proceso auxiliar de fondo (como el Garbage Collector de Java):  
+> * Da servicio o soporte a los hilos de usuario.  
+> * **No retiene a la JVM:** Si todos los hilos normales (de usuario) terminan su trabajo, la máquina virtual Java finaliza y cierra el programa de golpe sin esperar a que los hilos demonio concluyan.
+
+---
+
 ### ❓ P30. ¿Qué método contiene el código que ejecutará un hilo?
 * ❌ *start()*
 * ✅ **run()**
@@ -373,6 +547,19 @@
 > **💡 Justificación:**  
 > * **`run()`**: Es el método donde se **programa el trabajo real** que debe hacer el hilo.
 > * *(Cuidado con la trampa: para **arrancar** el hilo se llama a `start()`, pero el que **contiene el código** es `run()`)*.
+
+---
+
+### ❓ P49. ¿Qué ocurre si llamas a `run()` directamente en vez de a `start()`?
+* ❌ *Se crea un hilo nuevo igualmente*
+* ❌ *Da error de compilación*
+* ✅ **El código se ejecuta en el hilo actual, sin crear un hilo nuevo**
+* ❌ *El programa termina*
+
+> **💡 Justificación:**  
+> Es una de las trampas más típicas de examen en Java:  
+> * **`start()`**: Registra el hilo en el sistema operativo, crea una nueva pila (*call stack*) y arranca la ejecución en paralelo.  
+> * **`run()`**: Es un método Java ordinario. Si lo llamas tú manualmente (`miHilo.run()`), el código se ejecutará secuencialmente dentro del **mismo hilo actual** (por ejemplo, el hilo `main`), sin ninguna concurrencia ni nuevo hilo.
 
 ---
 
@@ -436,6 +623,20 @@
 
 > **💡 Justificación:**  
 > Una **condición de carrera** (*race condition*) es un fallo grave de concurrencia: varios hilos leen y escriben en una variable compartida sin sincronizar, haciendo que el resultado final del programa sea erróneo e impredecible según la velocidad o el orden de la CPU.
+
+---
+
+### ❓ P50. ¿Qué es un interbloqueo (*deadlock*)?
+* ❌ *Un hilo que termina antes de tiempo*
+* ❌ *Un hilo con prioridad máxima*
+* ❌ *Un error de sintaxis*
+* ✅ **Dos o más hilos esperándose mutuamente... (para liberar un recurso)**
+
+> **💡 Justificación:**  
+> Un **interbloqueo** (*deadlock* o "abrazo mortal") ocurre en programación concurrente cuando dos o más hilos se quedan congelados indefinidamente porque cada uno está esperando a que el otro libere un recurso bloqueado:  
+> * El **Hilo 1** tiene bloqueado el Recurso A y espera el Recurso B.  
+> * El **Hilo 2** tiene bloqueado el Recurso B y espera el Recurso A.  
+> Como ninguno puede continuar sin el otro, el programa se queda colgado para siempre.
 
 ---
 
