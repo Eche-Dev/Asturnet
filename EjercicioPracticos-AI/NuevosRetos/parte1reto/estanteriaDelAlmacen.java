@@ -1,3 +1,5 @@
+package parte1reto;
+
 import java.util.Scanner;
 
 public class estanteriaDelAlmacen {

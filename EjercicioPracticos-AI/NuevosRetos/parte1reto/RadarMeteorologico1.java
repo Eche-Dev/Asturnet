@@ -1,3 +1,4 @@
+package parte1reto;
 //Se impoorta solito
 import java.util.Scanner;
 
