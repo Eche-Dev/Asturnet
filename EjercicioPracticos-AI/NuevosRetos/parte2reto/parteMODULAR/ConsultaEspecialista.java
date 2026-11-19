@@ -31,5 +31,4 @@ public class ConsultaEspecialista extends Consulta {
         //AQUI LO MANDAMOS AL PADRE
         return precioEspecialistaFinal;
     }
-
 }

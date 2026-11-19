@@ -1,0 +1,88 @@
+<!DOCTYPE html> <!-- Indica al navegador que este documento usa HTML5 -->
+<html lang="es">  <!-- Idioma principal de la página: español (ES) -->
+<head>
+    <meta charset="UTF-8"> <!-- Codificación UTF-8 para mostrar bien tildes y la ñ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta el ancho a móviles -->
+    <title>Formulario EcheVilla</title> <!-- Título que aparece en la pestaña del navegador -->
+</head>
+<body> <!-- Inicio del contenido visible de la página -->
+
+    <main> <!-- Contenido principal del documento (etiqueta semántica) -->
+        <h1>Registro de Alumno</h1> <!-- Título principal de la página -->
+
+        <!--
+            <form>: contenedor del formulario.
+            - action="/registro": ruta del servidor a la que se enviarán los datos.
+            - method="POST": envía los datos en el cuerpo de la petición HTTP (no visibles en la URL).
+        -->
+        <form action="/registro" method="POST">
+
+            <!-- Campo de texto: Nombre -->
+            <div> <!-- Agrupa etiqueta + campo en bloque para que quede ordenado -->
+                <!-- <label for="nombre"> asocia el texto al input con id="nombre" (mejora accesibilidad y clic) -->
+                <label for="nombre">Nombre completo:</label><br>
+                <!--
+                    <input>: campo de entrada.
+                    - type="text": acepta texto normal.
+                    - id="nombre": identificador único en la página (lo usa el <label>).
+                    - name="nombre": nombre de la clave con la que viajará el dato al servidor.
+                    - placeholder="...": texto guía que desaparece al escribir.
+                    - required: obliga a rellenar el campo antes de enviar.
+                -->
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana López" required>
+            </div>
+            <br> <!-- Salto de línea para separar campos -->
+
+            <!-- Campo de correo electrónico -->
+            <div>
+                <label for="email">Correo electrónico:</label><br>
+                <!-- type="email" valida automáticamente que tenga formato de correo (@ y dominio) -->
+                <input type="email" id="email" name="email" placeholder="ana@ejemplo.es" required>
+            </div>
+            <br>
+
+            <!-- Campo numérico: Edad -->
+            <div>
+                <label for="edad">Edad:</label><br>
+                <!--
+                    type="number": solo permite números.
+                    min="16" max="99": rango mínimo y máximo permitido por HTML5.
+                -->
+                <input type="number" id="edad" name="edad" min="16" max="99" required>
+            </div>
+            <br>
+
+            <!-- Lista desplegable: Curso -->
+            <div>
+                <label for="curso">Unidad formativa:</label><br>
+                <!-- <select>: menú desplegable; name="curso" es el nombre del dato enviado -->
+                <select id="curso" name="curso" required>
+                    <option value="">-- Elige una opción --</option> <!-- value="" obliga a elegir si es required -->
+                    <option value="UF2404">UF2404 - POO</option> <!-- value="UF2404" es lo que se envía al servidor -->
+                    <option value="UF2405">UF2405 - Web y BBDD</option>
+                    <option value="UF2406">UF2406 - Ciclo de vida</option>
+                </select>
+            </div>
+            <br>
+
+            <!-- Área de texto multilínea: Comentarios -->
+            <div>
+                <label for="comentarios">Comentarios (opcional):</label><br>
+                <!-- <textarea>: caja de texto de varias líneas; rows/cols definen su tamaño inicial -->
+                <textarea id="comentarios" name="comentarios" rows="4" cols="35" placeholder="Escribe tus dudas aquí..."></textarea>
+            </div>
+            <br>
+
+            <!-- Botones de acción -->
+            <div>
+                <!-- type="submit": valida el formulario y lo envía al servidor -->
+                <button type="submit">Enviar registro</button>
+                <!-- type="reset": limpia todos los campos del formulario -->
+                <button type="reset">Limpiar</button>
+            </div>
+
+        </form>
+    </main>
+
+</body> <!-- Fin del contenido visible -->
+</html>
